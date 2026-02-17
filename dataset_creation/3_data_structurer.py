@@ -20,7 +20,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 class CyberDataStructurer:
-    def __init__(self, input_dir: str = "filtered_data", output_dir: str = "structured_data", ollama_model: str = "gemma3", ollama_port: int = 65008):
+    def __init__(self, input_dir: str = "filtered_data", output_dir: str = "structured_data", ollama_model: str = "gemma:2b", ollama_port: int = 11434):
         """Initialize the data structurer with directory configurations."""
         self.input_dir = Path(input_dir)
         self.output_dir = Path(output_dir)
@@ -92,7 +92,7 @@ class CyberDataStructurer:
                             "num_predict": 256  # Limit response length
                         }
                     },
-                    timeout=15  # Reduced timeout
+                    timeout=120  # Reduced timeout
                 )
                 response.raise_for_status()
                 return response.json()["response"]
@@ -223,7 +223,7 @@ class CyberDataStructurer:
         total_entries = len(data)
         
         # Process only first 5 entries for testing
-        for i, entry in enumerate(data[:5], 1):
+        for i, entry in enumerate(data[:9999], 1):
             logger.info(f"Processing entry {i}/{min(5, total_entries)} from {input_file.name}")
             entry_type = self.detect_entry_type(entry)
             if entry_type:
@@ -249,7 +249,7 @@ class CyberDataStructurer:
         total_files = len(input_files)
         
         # Process only first 2 files for testing
-        for i, file_path in enumerate(input_files[:2], 1):
+        for i, file_path in enumerate(input_files[:9999], 1):
             logger.info(f"Processing file {i}/{min(2, total_files)}: {file_path.name}")
             structured_pairs = self.structure_dataset(file_path)
             
