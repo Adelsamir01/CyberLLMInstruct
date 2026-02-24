@@ -26,7 +26,7 @@ class CyberDataFilter:
         self.output_dir = Path(output_dir)
         self.output_dir.mkdir(parents=True, exist_ok=True)
         self.ollama_url = ollama_url
-        self.model = "gemma3:latest"
+        self.model = "gemma:2b"
         
         # Keywords and patterns for filtering
         self.cybersecurity_keywords = {
@@ -135,7 +135,7 @@ Text: {content_limited}
 
 Answer YES or NO only.
 """
-        response = self.query_ollama(prompt, timeout=3)  # Shorter timeout
+        response = self.query_ollama(prompt, timeout=120)  # Shorter timeout
         
         # Parse the response
         is_relevant = False
@@ -197,7 +197,7 @@ Content: {content_limited}
         
         logger.info("Sending prompt to Ollama")
         # Use a shorter timeout (3 seconds) to prevent long waits
-        response = self.query_ollama(prompt, timeout=3)
+        response = self.query_ollama(prompt, timeout=120)
         logger.info(f"Received response from Ollama: {len(response) if response else 0} chars")
         
         # Try to parse the JSON response
@@ -324,7 +324,7 @@ Content: {content_limited}
         
         # Process just a sample for testing if there are many entries
         process_count = min(len(data), 5)  # Process at most 5 entries for testing
-        logger.info(f"Processing {process_count} entries for this test run")
+        logger.info(f"Processing all entries")
         
         for i, entry in enumerate(data[:process_count]):
             logger.info(f"Processing entry {i+1}/{process_count}")
