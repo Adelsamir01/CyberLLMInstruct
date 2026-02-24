@@ -7,13 +7,20 @@ If you use this dataset in your research, please cite our paper:
 ```bibtex
 @inproceedings{CyberLLMInstruct,
 author = {ElZemity, Adel and Arief, Budi and Li, Shujun},
-title = {{CyberLLMInstruct}: A Pseudo-Malicious Dataset Revealing Safety-Performance Trade-offs in Cyber Security {LLM} Fine-tuning},
-booktitle = {Proceedings of the 2025 Workshop on Artificial Intelligence and Security (AISec 2025)},
-year = {2025},
-publisher = {ACM},
-doi = {10.1145/3733799.3762968},
+title = {CyberLLMInstruct: A Pseudo-Malicious Dataset Revealing Safety-Performance Trade-offs in Cyber Security LLM Fine-tuning},
+year = {2026},
+isbn = {9798400718953},
+publisher = {Association for Computing Machinery},
 address = {New York, NY, USA},
-note = {Preprint available at \url{https://doi.org/10.48550/arXiv.2503.09334}},
+url = {https://doi.org/10.1145/3733799.3762968},
+doi = {10.1145/3733799.3762968},
+booktitle = {Proceedings of the 18th ACM Workshop on Artificial Intelligence and Security},
+pages = {77–88},
+numpages = {12},
+keywords = {large language models, cyber security, dataset, fine-tuning, adversarial testing, model safety, pseudo-malicious data},
+location = {
+},
+series = {AISec '25}
 }
 ```
 
