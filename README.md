@@ -18,6 +18,7 @@ booktitle = {Proceedings of the 18th ACM Workshop on Artificial Intelligence and
 pages = {77–88},
 numpages = {12},
 series = {AISec '25}
+}
 ```
 
 This repository contains all code and materials to reproduce the dataset used in the paper. Due to copyright considerations, we provide scripts to regenerate the dataset rather than distributing it directly.
